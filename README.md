@@ -31,19 +31,41 @@ account1
 ```
 
 ### Switch Account
-Switch to a specified Steam account. Optionally, start Steam automatically after switching.
+Switch to a specified Steam account. Optionally, start Steam automatically and/or run a custom command after switching.
 
 ```bash
-steam-account-switcher.exe switch <account_name> [-y]
+steam-account-switcher.exe switch <account_name> [-y] [-c <custom_command>]
 ```
 - `<account_name>`: The account name to switch to (must already exist in Steam).
-- `-y`: (Optional) Automatically start Steam after switching (otherwise, you will be prompted).
+- `-y`: (Optional) Automatically start Steam after switching.
+- `-c <custom_command>`: (Optional) Run a custom command after switching (e.g., to launch a game or script). STEAM_PATH will be replaced with the actual Steam path.
 
 **Examples:**
 ```
 steam-account-switcher.exe switch myaccount
 steam-account-switcher.exe switch myaccount -y
+steam-account-switcher.exe switch myaccount -c "echo Switched!"
 ```
+
+### Show Version
+Display the current version of the application.
+
+```bash
+steam-account-switcher.exe version
+```
+
+**Example output:**
+```
+v1.0.0
+```
+
+## Usage Notes
+
+- If no arguments are provided, you will see:
+  ```
+  No arguments provided. Please use 'list' or 'switch' or 'current'.
+  ```
+- The application is Windows-only and requires appropriate permissions to access the registry and file system.
 
 ## Prerequisites
 
